@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MQC</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_pova">PovaActivity</string>
+    <string name="title_activity_trabalho">TrabalhoActivity</string>
+    <string name="title_activity_local">LocalActivity</string>
+    <string name="title_activity_falta">FaltaActivity</string>
+    <string name="title_activity_first">FirstActivity</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+</resources>

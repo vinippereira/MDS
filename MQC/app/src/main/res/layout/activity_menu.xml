@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MenuActivity">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_menu_height">
+
+        <Button
+            android:id="@+id/button_left_high"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_menu_height"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|normal"
+            android:text="Provas"
+            android:layout_marginRight="10dp"
+            android:typeface="serif"
+            android:background="#838383"/>
+
+
+        <Button
+            android:id="@+id/button_right_high"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_menu_height"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|normal"
+            android:text="Trabalhos"
+            android:layout_marginLeft="10dp"
+            android:typeface="serif"
+            android:background="#4FB9EB"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_menu_height"
+        android:layout_marginTop="@dimen/layout_menu_marginTop">
+
+        <Button
+            android:id="@+id/button_left_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_menu_height"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:background="#0CE629"
+            android:textStyle="bold|normal"
+            android:layout_marginRight="10dp"
+            android:text="Local"
+            android:typeface="serif"/>
+
+
+        <Button
+            android:id="@+id/button_right_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_menu_height"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|normal"
+            android:text="Faltas"
+            android:layout_marginLeft="10dp"
+            android:background="#D5AED3"
+            android:typeface="serif"/>
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
