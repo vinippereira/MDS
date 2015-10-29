@@ -7,11 +7,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toolbar;
+
+import com.parse.*;
 
 import com.ufscar.alunos.mqc.R;
 
 public class MenuActivity extends Activity {
     private Button buttonMenuLH,buttonMenuRH, buttonMenuRB,buttonMenuLB;
+    private Toolbar mToobar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,20 @@ public class MenuActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        this.mToobar = (Toolbar) findViewById(R.id.tb_menu);
+        mToobar.setTitle("Agenda");
+        mToobar.setSubtitle("Agenda do estudante");
+        mToobar.setLogo(R.drawable.favicon_teste);
+
+        // Enable Local Datastore.
+        Parse.enableLocalDatastore(this);
+
+        Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
+//
+//        ParseObject testObject = new ParseObject("TestObject");
+//        testObject.put("foo", "bar");
+//        testObject.saveInBackground();
     }
 
     @Override

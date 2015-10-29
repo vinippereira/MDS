@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.Parse;
 import com.ufscar.alunos.mqc.R;
 
 public class FaltasActivity extends Activity {
+    //private Parse obj
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

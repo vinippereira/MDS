@@ -9,4 +9,12 @@
     <TextView android:text="Faltas" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:id="@+id/my_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Faltas"
+        android:background="@android:color/white"
+        android:elevation="5dp" />
+
 </RelativeLayout>
