@@ -7,8 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
 import com.ufscar.alunos.mqc.R;
+import com.parse.*;
 
 public class MenuActivity extends Activity {
     private Button buttonMenuLH,buttonMenuRH, buttonMenuRB,buttonMenuLB;
@@ -56,6 +56,14 @@ public class MenuActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
+
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("foo", "bar");
+        testObject.saveInBackground();
+
     }
 
     @Override
