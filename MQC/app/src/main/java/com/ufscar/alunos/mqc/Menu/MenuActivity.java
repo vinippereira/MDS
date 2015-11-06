@@ -1,30 +1,42 @@
 package com.ufscar.alunos.mqc.Menu;
 
-import android.app.Activity;
-import android.content.Intent;
+
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import com.ufscar.alunos.mqc.R;
+import android.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.parse.*;
 
-public class MenuActivity extends Activity {
+import com.ufscar.alunos.mqc.R;
+
+public class MenuActivity extends Fragment {
     private Button buttonMenuLH,buttonMenuRH, buttonMenuRB,buttonMenuLB;
+    private Toolbar mToobar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                            Bundle savedInstanceState) {
 
-        //referencias para conseguir manipular os botoes
-        buttonMenuLH = (Button) findViewById(R.id.button_left_high); //botao left high
+        if (container == null) {
+            return null;
+        }
+
+        return(RelativeLayout) inflater.inflate(R.layout.activity_menu, container, false);
+
+
+
+       /* //referencias para conseguir manipular os botoes
+        buttonMenuLH = (Button)  findViewById(R.id.button_left_high); //botao left high
         buttonMenuRH = (Button) findViewById(R.id.button_right_high); // botao right high
         buttonMenuRB = (Button) findViewById(R.id.button_right_bottom);
-        buttonMenuLB = (Button) findViewById(R.id.button_left_bottom);
+        buttonMenuLB = (Button) findViewById(R.id.button_left_bottom);*/
 
-        //acao dos botoes ao serem clicados
+       /* //acao dos botoes ao serem clicados
         buttonMenuLH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,21 +69,23 @@ public class MenuActivity extends Activity {
             }
         });
 
+
+        // Enable Local Datastore.
         Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
 
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
-
+        Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");*/
+//
+//        ParseObject testObject = new ParseObject("TestObject");
+//        testObject.put("foo", "bar");
+//        testObject.saveInBackground();
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_menu, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
