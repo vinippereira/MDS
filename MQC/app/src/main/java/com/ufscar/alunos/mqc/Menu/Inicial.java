@@ -80,9 +80,10 @@ public class Inicial extends FragmentActivity implements
     private void intialiseViewPager() {
 
         List<Fragment> fragments = new Vector<Fragment>();
+        fragments.add(Fragment.instantiate(this, MeusCursosActivity.class.getName()));
+        fragments.add(Fragment.instantiate(this, CadastroCursos.class.getName()));
         fragments.add(Fragment.instantiate(this, MenuActivity.class.getName()));
-        fragments.add(Fragment.instantiate(this, FaltasActivity.class.getName()));
-        //fragments.add(Fragment.instantiate(this, TabFragmentC.class.getName()));
+        fragments.add(Fragment.instantiate(this, HorarioCursos.class.getName()));
         this.mPagerAdapter = new com.ufscar.alunos.mqc.Menu.ViewPagerAdapter(
                 super.getSupportFragmentManager(), fragments);
         this.mViewPager = (ViewPager) super.findViewById(R.id.viewpager);
@@ -94,19 +95,28 @@ public class Inicial extends FragmentActivity implements
         mTabHost = (TabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup();
         TabInfo tabInfo = null;
+
         Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab1").setIndicator("A"),
-                (tabInfo = new TabInfo("Tab1", MenuActivity.class, args)));
+                this.mTabHost.newTabSpec("Tab1").setIndicator("Meus Cursos"),
+                (tabInfo = new TabInfo("Tab1", MeusCursosActivity.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
+
         Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab2").setIndicator("B"),
-                (tabInfo = new TabInfo("Tab2", FaltasActivity.class, args)));
+                this.mTabHost.newTabSpec("Tab2").setIndicator("Cadastro de Cursos"),
+                (tabInfo = new TabInfo("Tab2", CadastroCursos.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        /*MainActivity.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab3").setIndicator("C"),
-                (tabInfo = new TabInfo("Tab3", TabFragmentC.class, args)));
+
+        Inicial.AddTab(this, this.mTabHost,
+                this.mTabHost.newTabSpec("Tab3").setIndicator("Menu"),
+                (tabInfo = new TabInfo("Tab3", MenuActivity.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        mTabHost.setOnTabChangedListener(this);*/
+        mTabHost.setOnTabChangedListener(this);
+
+        Inicial.AddTab(this, this.mTabHost,
+                this.mTabHost.newTabSpec("Tab3").setIndicator("Horarios Cursos"),
+                (tabInfo = new TabInfo("Tab3", HorarioCursos.class, args)));
+        this.mapTabInfo.put(tabInfo.tag, tabInfo);
+        mTabHost.setOnTabChangedListener(this);
     }
 
     private static void AddTab(Inicial activity, TabHost tabHost,

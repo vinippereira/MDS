@@ -14,5 +14,11 @@
     <string name="title_section3">Section 3</string>
     <string name="title_activity_initial">Initial</string>
     <string name="title_activity_inicial">Inicial</string>
+    <string name="title_activity_meus_cursos">MeusCursosActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_cadastro_cursos">CadastroCursos</string>
+    <string name="title_activity_horario_cursos">HorarioCursos</string>
 
 </resources>

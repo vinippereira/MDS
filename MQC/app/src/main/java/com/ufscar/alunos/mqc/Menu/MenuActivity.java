@@ -11,7 +11,7 @@ import android.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import com.parse.*;
+//import com.parse.*;
 
 import com.ufscar.alunos.mqc.R;
 
@@ -83,10 +83,10 @@ public class MenuActivity extends Fragment  {
 
 
         // Enable Local Datastore.
-        Parse.enableLocalDatastore(getActivity());
+        /*Parse.enableLocalDatastore(getActivity());
 
         Parse.initialize(getActivity(), "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
-//
+//*/
 //        ParseObject testObject = new ParseObject("TestObject");
 //        testObject.put("foo", "bar");
 //        testObject.saveInBackground();
