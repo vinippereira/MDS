@@ -1,22 +1,21 @@
 package com.ufscar.alunos.mqc.Menu;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Vector;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.TabHost;
+import android.widget.TabHost.TabContentFactory;
 
-        import java.util.HashMap;
-        import java.util.List;
-        import java.util.Vector;
-
-        import android.content.Context;
-        import android.os.Bundle;
-        import android.support.v4.app.Fragment;
-        import android.support.v4.app.FragmentActivity;
-        import android.support.v4.view.PagerAdapter;
-        import android.support.v4.view.ViewPager;
-        import android.view.View;
-        import android.widget.TabHost;
-        import android.widget.TabHost.TabContentFactory;
-
-        import com.ufscar.alunos.mqc.R;
+import com.ufscar.alunos.mqc.R;
+import com.parse.*;
 
 public class Inicial extends FragmentActivity implements
         TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
@@ -69,6 +68,14 @@ public class Inicial extends FragmentActivity implements
         }
         // Inicializa o ViewPager
         this.intialiseViewPager();
+
+        // Enable Local Datastore.
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
+
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("TESTE", "RODOU");
+        testObject.saveInBackground();
     }
 
     protected void onSaveInstanceState(Bundle outState) {
