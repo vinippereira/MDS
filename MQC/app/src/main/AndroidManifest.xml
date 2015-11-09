@@ -56,6 +56,7 @@
             android:name=".Menu.HorarioCursos"
             android:label="@string/title_activity_horario_cursos" >
         </activity>
+
     </application>
 
 </manifest>

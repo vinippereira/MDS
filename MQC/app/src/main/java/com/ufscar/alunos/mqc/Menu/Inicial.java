@@ -76,6 +76,7 @@ public class Inicial extends FragmentActivity implements
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("TESTE", "RODOU");
         testObject.saveInBackground();
+        
     }
 
     protected void onSaveInstanceState(Bundle outState) {
