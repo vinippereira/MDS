@@ -5,19 +5,25 @@ import java.util.List;
 import java.util.Vector;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
+import android.widget.TextView;
 
 import com.ufscar.alunos.mqc.R;
 import com.parse.*;
 
-public class Inicial extends FragmentActivity implements
+public class Inicial extends AppCompatActivity implements
         TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
 
     private TabHost mTabHost;
@@ -58,14 +64,20 @@ public class Inicial extends FragmentActivity implements
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+
         // Infla o layout
         setContentView(R.layout.activity_inicial);
+
         // Inicializa o TabHost
         this.initialiseTabHost(savedInstanceState);
         if (savedInstanceState != null) {
             // Define a Tab de acordo com o estado salvo
             mTabHost.setCurrentTabByTag(savedInstanceState.getString("tab"));
         }
+
+       // this.getActionBar().hide();
+
         // Inicializa o ViewPager
         this.intialiseViewPager();
 
@@ -73,9 +85,9 @@ public class Inicial extends FragmentActivity implements
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
 
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("TESTE", "RODOU");
-        testObject.saveInBackground();
+//        ParseObject testObject = new ParseObject("TestObject");
+//        testObject.put("TESTE", "RODOU");
+//        testObject.saveInBackground();
         
     }
 
@@ -89,9 +101,9 @@ public class Inicial extends FragmentActivity implements
 
         List<Fragment> fragments = new Vector<Fragment>();
         fragments.add(Fragment.instantiate(this, MeusCursosActivity.class.getName()));
-        fragments.add(Fragment.instantiate(this, CadastroCursos.class.getName()));
-        fragments.add(Fragment.instantiate(this, MenuActivity.class.getName()));
         fragments.add(Fragment.instantiate(this, HorarioCursos.class.getName()));
+        fragments.add(Fragment.instantiate(this, LocalActivity.class.getName()));
+
         this.mPagerAdapter = new com.ufscar.alunos.mqc.Menu.ViewPagerAdapter(
                 super.getSupportFragmentManager(), fragments);
         this.mViewPager = (ViewPager) super.findViewById(R.id.viewpager);
@@ -104,27 +116,32 @@ public class Inicial extends FragmentActivity implements
         mTabHost.setup();
         TabInfo tabInfo = null;
 
+
+
+//        Inicial.AddTab(this, this.mTabHost,
+//                this.mTabHost.newTabSpec("Tab2").setIndicator("Cadastro de Cursos"),
+//                (tabInfo = new TabInfo("Tab2", CadastroCursos.class, args)));
+//        this.mapTabInfo.put(tabInfo.tag, tabInfo);
+
         Inicial.AddTab(this, this.mTabHost,
                 this.mTabHost.newTabSpec("Tab1").setIndicator("Meus Cursos"),
                 (tabInfo = new TabInfo("Tab1", MeusCursosActivity.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
 
         Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab2").setIndicator("Cadastro de Cursos"),
-                (tabInfo = new TabInfo("Tab2", CadastroCursos.class, args)));
-        this.mapTabInfo.put(tabInfo.tag, tabInfo);
-
-        Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab3").setIndicator("Menu"),
-                (tabInfo = new TabInfo("Tab3", MenuActivity.class, args)));
-        this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        mTabHost.setOnTabChangedListener(this);
-
-        Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab3").setIndicator("Horarios Cursos"),
+                this.mTabHost.newTabSpec("Tab3").setIndicator("Horário"),
                 (tabInfo = new TabInfo("Tab3", HorarioCursos.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
         mTabHost.setOnTabChangedListener(this);
+
+        Inicial.AddTab(this, this.mTabHost,
+                this.mTabHost.newTabSpec("Tab3").setIndicator("Local"),
+                (tabInfo = new TabInfo("Tab3", LocalActivity.class, args)));
+        this.mapTabInfo.put(tabInfo.tag, tabInfo);
+        mTabHost.setOnTabChangedListener(this);
+
+        //obs: dentro do esquema de abas do curso eh que terá a aba de menu ....
+
     }
 
     private static void AddTab(Inicial activity, TabHost tabHost,
@@ -154,4 +171,7 @@ public class Inicial extends FragmentActivity implements
     public void onPageScrollStateChanged(int state) {
 
     }
+
+
+
 }

@@ -6,7 +6,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context="MeusCursosActivity">
 
+
     <TextView android:text="Listagem dos cursos cadastrados" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_floating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_add_black_24dp"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginBottom="42dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
+

@@ -1,15 +1,12 @@
-<!--<resources>-->
-
-    <!--&lt;!&ndash; Base application theme. &ndash;&gt;-->
-    <!--<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">-->
-        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-    <!--</style>-->
-
-<!--</resources>-->
-
 <resources>
-    <!-- your theme inherits from the material theme -->
-    <style name="AppTheme" parent="android:Theme.Material">
-        <!-- theme customizations -->
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowNoTitle">true</item> <!-- Hides the Action Bar -->
+        <item name="android:windowFullscreen">true</item> <!-- Hides the status bar -->
     </style>
+
 </resources>

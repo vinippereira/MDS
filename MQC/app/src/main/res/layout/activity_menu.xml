@@ -12,9 +12,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_menu_height"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/linearLayout2">
+        android:id="@+id/linearLayout2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:id="@+id/button_left_high"
@@ -45,9 +45,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_menu_height"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentLeft="true">
 
         <Button
             android:id="@+id/button_left_bottom"

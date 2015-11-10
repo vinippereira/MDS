@@ -13,12 +13,17 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.parse.*;
 
+import android.support.design.widget.FloatingActionButton;
+
 import com.ufscar.alunos.mqc.R;
 
 public class MeusCursosActivity extends Fragment {
 
+    private FloatingActionButton couseAdd;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
 
         if (container == null) {
             return null;
