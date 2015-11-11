@@ -16,6 +16,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
@@ -32,6 +33,7 @@ public class Inicial extends AppCompatActivity implements
     private ViewPager mViewPager;
     private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, Inicial.TabInfo>();
     private PagerAdapter mPagerAdapter;
+    private Toolbar toolbar;
 
     // Informação da Tab
     private class TabInfo {
@@ -69,16 +71,26 @@ public class Inicial extends AppCompatActivity implements
         //getSupportActionBar().hide();
 
         //getSupportActionBar().setTitle(null);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#009688")));
+
 
         // Infla o layout
         setContentView(R.layout.activity_inicial);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Task App");
+        setSupportActionBar(toolbar);
 
         // Inicializa o TabHost
         this.initialiseTabHost(savedInstanceState);
         if (savedInstanceState != null) {
             // Define a Tab de acordo com o estado salvo
             mTabHost.setCurrentTabByTag(savedInstanceState.getString("tab"));
+        }
+
+        //atualiza as cores da fonte das abas das tabelas
+        for(int i=0;i<mTabHost.getTabWidget().getChildCount();i++) {
+            TextView tv = (TextView) mTabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
+            tv.setTextColor(Color.parseColor("#ffffff"));
         }
 
        // this.getActionBar().hide();
@@ -120,7 +132,6 @@ public class Inicial extends AppCompatActivity implements
         mTabHost = (TabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup();
         TabInfo tabInfo = null;
-
 
         Inicial.AddTab(this, this.mTabHost,
                 this.mTabHost.newTabSpec("Tab1").setIndicator("Meus Cursos"),

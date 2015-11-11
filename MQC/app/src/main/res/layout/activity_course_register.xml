@@ -7,13 +7,15 @@
     tools:context="com.ufscar.alunos.mqc.Menu.CourseRegisterActivity">
 
     <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
-        android:layout_width="match_parent" android:theme="@style/AppBarOverlay">
+        android:layout_width="match_parent" android:theme="@style/AppBarOverlay"
+        android:id="@+id/toolbarWrapper">
 
         <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
             android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
-            android:background="@color/accent_material_light" app:popupTheme="@style/PopupOverlay"  />
+            app:popupTheme="@style/PopupOverlay"  />
 
     </android.support.design.widget.AppBarLayout>
+
 
     <include layout="@layout/content_course_register" />
 
