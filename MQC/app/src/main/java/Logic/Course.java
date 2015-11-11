@@ -8,9 +8,11 @@ import java.util.ArrayList;
 public class Course {
 
     private String name;
+    private String color;
+    private String local;
     private ArrayList<Subject> subjects;
 
-    Course(){
+    public Course(){
         subjects = new ArrayList<>();
     }
 
@@ -28,5 +30,21 @@ public class Course {
 
     public void setSubjects(ArrayList<Subject> subjects) {
         this.subjects = subjects;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
     }
 }

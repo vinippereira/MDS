@@ -20,5 +20,31 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_cadastro_cursos">CadastroCursos</string>
     <string name="title_activity_horario_cursos">HorarioCursos</string>
+    <string name="title_activity_course_register">CourseRegisterActivity</string>
+
+    <string name="form_name_course">Nome do curso</string>
+    <string name="form_local_course">Local do curso</string>
+
+    <string-array name="colors_array">
+        <item>Vermelho</item>
+        <item>Verde</item>
+        <item>Azul</item>
+        <item>Amarelo</item>
+    </string-array>
+
+    <string-array name="colors">
+        <item>#f44336</item>
+        <item>#e91e63</item>
+        <item>#9c27b0</item>
+        <item>#2196f3</item>
+        <item>#009688</item>
+        <item>#4caf50</item>
+        <item>#cddc39</item>
+        <item>#ffeb3b</item>
+        <item>#ff9800</item>
+        <item>#795548</item>
+        <item>#9e9e9e</item>
+        <item>#000000</item>
+    </string-array>
 
 </resources>

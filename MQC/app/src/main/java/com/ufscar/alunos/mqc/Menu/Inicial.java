@@ -117,12 +117,6 @@ public class Inicial extends AppCompatActivity implements
         TabInfo tabInfo = null;
 
 
-
-//        Inicial.AddTab(this, this.mTabHost,
-//                this.mTabHost.newTabSpec("Tab2").setIndicator("Cadastro de Cursos"),
-//                (tabInfo = new TabInfo("Tab2", CadastroCursos.class, args)));
-//        this.mapTabInfo.put(tabInfo.tag, tabInfo);
-
         Inicial.AddTab(this, this.mTabHost,
                 this.mTabHost.newTabSpec("Tab1").setIndicator("Meus Cursos"),
                 (tabInfo = new TabInfo("Tab1", MeusCursosActivity.class, args)));

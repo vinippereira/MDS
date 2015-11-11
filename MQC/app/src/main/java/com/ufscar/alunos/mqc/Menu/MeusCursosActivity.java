@@ -19,17 +19,26 @@ import com.ufscar.alunos.mqc.R;
 
 public class MeusCursosActivity extends Fragment {
 
-    private FloatingActionButton couseAdd;
+    private FloatingActionButton courseAdd;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
         if (container == null) {
             return null;
         }
 
         View rootView = inflater.inflate(R.layout.activity_meus_cursos, container, false);
+
+        courseAdd = (FloatingActionButton) rootView.findViewById(R.id.button_floating);
+
+        courseAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CourseRegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }
