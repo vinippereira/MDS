@@ -8,6 +8,7 @@
         <item name="android:windowNoTitle">true</item> <!-- Hides the Action Bar -->
         <item name="android:windowFullscreen">true</item> <!-- Hides the status bar -->
     </style>
+
     <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

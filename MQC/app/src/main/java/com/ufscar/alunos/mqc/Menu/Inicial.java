@@ -6,7 +6,9 @@ import java.util.Vector;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -64,7 +66,10 @@ public class Inicial extends AppCompatActivity implements
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
+
+        //getSupportActionBar().setTitle(null);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#009688")));
 
         // Infla o layout
         setContentView(R.layout.activity_inicial);
