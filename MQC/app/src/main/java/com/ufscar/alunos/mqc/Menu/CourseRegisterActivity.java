@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 import com.ufscar.alunos.mqc.R;
 
 import Logic.Course;
@@ -90,6 +91,7 @@ public class CourseRegisterActivity extends AppCompatActivity {
                 saveCourse.put("name", course.getName());
                 saveCourse.put("local", course.getLocal());
                 saveCourse.put("color", course.getColor());
+                saveCourse.put("owner", ParseUser.getCurrentUser());
                 saveCourse.saveInBackground();
 
 

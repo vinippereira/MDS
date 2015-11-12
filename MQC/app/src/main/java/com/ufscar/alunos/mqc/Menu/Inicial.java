@@ -98,10 +98,6 @@ public class Inicial extends AppCompatActivity implements
         // Inicializa o ViewPager
         this.intialiseViewPager();
 
-        // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
-
 //        ParseObject testObject = new ParseObject("TestObject");
 //        testObject.put("TESTE", "RODOU");
 //        testObject.saveInBackground();
