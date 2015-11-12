@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/row_cursos">
+    android:layout_width="match_parent" android:layout_height="65dp"
+    android:id="@+id/row_cursos"
+    android:orientation="horizontal">
+    <Button
+        android:id="@+id/button_color"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="6"
+        android:layout_gravity="bottom"
+        android:background="#D5AED3"/>
 
     <TextView
         android:id="@+id/textRowId"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="22dp"
+        android:paddingTop="48dp"
+        android:layout_marginLeft="5dp"/>
+
 
 </LinearLayout>

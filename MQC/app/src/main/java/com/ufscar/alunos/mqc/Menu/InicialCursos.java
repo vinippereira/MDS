@@ -26,12 +26,12 @@ import android.widget.TextView;
 import com.ufscar.alunos.mqc.R;
 import com.parse.*;
 
-public class Inicial extends AppCompatActivity implements
+public class InicialCursos extends AppCompatActivity implements
         TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
 
     private TabHost mTabHost;
     private ViewPager mViewPager;
-    private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, Inicial.TabInfo>();
+    private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, InicialCursos.TabInfo>();
     private PagerAdapter mPagerAdapter;
     private Toolbar toolbar;
 
@@ -74,9 +74,9 @@ public class Inicial extends AppCompatActivity implements
 
 
         // Infla o layout
-        setContentView(R.layout.activity_inicial);
+        setContentView(R.layout.activity_inicial_cursos);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbarCursos);
         toolbar.setTitle("Task App");
         setSupportActionBar(toolbar);
 
@@ -99,17 +99,6 @@ public class Inicial extends AppCompatActivity implements
         this.intialiseViewPager();
 
         // Enable Local Datastore.
-        try {
-
-            Parse.enableLocalDatastore(this);
-            Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
-        }
-        catch (Exception e) {
-
-        }
-//        ParseObject testObject = new ParseObject("TestObject");
-//        testObject.put("TESTE", "RODOU");
-//        testObject.saveInBackground();
 
     }
 
@@ -122,9 +111,9 @@ public class Inicial extends AppCompatActivity implements
     private void intialiseViewPager() {
 
         List<Fragment> fragments = new Vector<Fragment>();
-        fragments.add(Fragment.instantiate(this, MeusCursosActivity.class.getName()));
-        fragments.add(Fragment.instantiate(this, HorarioCursos.class.getName()));
-        fragments.add(Fragment.instantiate(this, LocalActivity.class.getName()));
+        fragments.add(Fragment.instantiate(this, Disciplinas.class.getName()));
+        fragments.add(Fragment.instantiate(this, Provas.class.getName()));
+        fragments.add(Fragment.instantiate(this, Trabalhos.class.getName()));
 
         this.mPagerAdapter = new com.ufscar.alunos.mqc.Menu.ViewPagerAdapter(
                 super.getSupportFragmentManager(), fragments);
@@ -138,20 +127,20 @@ public class Inicial extends AppCompatActivity implements
         mTabHost.setup();
         TabInfo tabInfo = null;
 
-        Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab1").setIndicator("Meus Cursos"),
-                (tabInfo = new TabInfo("Tab1", MeusCursosActivity.class, args)));
+        InicialCursos.AddTab(this, this.mTabHost,
+                this.mTabHost.newTabSpec("Tab1").setIndicator("Minhas Disciplinas"),
+                (tabInfo = new TabInfo("Tab1", Disciplinas.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
 
-        Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab3").setIndicator("Horário"),
-                (tabInfo = new TabInfo("Tab3", HorarioCursos.class, args)));
+        InicialCursos.AddTab(this, this.mTabHost,
+                this.mTabHost.newTabSpec("Tab3").setIndicator("Provas"),
+                (tabInfo = new TabInfo("Tab3", Provas.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
         mTabHost.setOnTabChangedListener(this);
 
-        Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab3").setIndicator("Local"),
-                (tabInfo = new TabInfo("Tab3", LocalActivity.class, args)));
+        InicialCursos.AddTab(this, this.mTabHost,
+                this.mTabHost.newTabSpec("Tab3").setIndicator("Trabalhos"),
+                (tabInfo = new TabInfo("Tab3", Trabalhos.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
         mTabHost.setOnTabChangedListener(this);
 
@@ -159,7 +148,7 @@ public class Inicial extends AppCompatActivity implements
 
     }
 
-    private static void AddTab(Inicial activity, TabHost tabHost,
+    private static void AddTab(InicialCursos activity, TabHost tabHost,
                                TabHost.TabSpec tabSpec, TabInfo tabInfo) {
         // Attach uma Tab view factory para o spec
         tabSpec.setContent(activity.new TabFactory(activity));

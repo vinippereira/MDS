@@ -59,5 +59,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_inicial_cursos">InicialCursos</string>
+    <string name="title_activity_disciplinas">Disciplinas</string>
+    <string name="title_activity_provas">Provas</string>
+    <string name="title_activity_trabalhos">Trabalhos</string>
 
 </resources>

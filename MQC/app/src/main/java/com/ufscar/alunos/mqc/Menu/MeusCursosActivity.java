@@ -4,6 +4,7 @@ package com.ufscar.alunos.mqc.Menu;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -12,7 +13,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -32,6 +35,7 @@ public class MeusCursosActivity extends Fragment {
     private ListView mListView;
     private MyAdapter mAdapter;
     private FloatingActionButton courseAdd;
+    private Button openDisciplinas;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,28 +50,32 @@ public class MeusCursosActivity extends Fragment {
         //Acessa todos os dados de uma tabela
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Course");
         query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> markers, ParseException e) {
-                if (e == null) {
-                    // your logic here
-                    String aux[] = new String[markers.size()];
+                                   public void done(List<ParseObject> markers, ParseException e) {
+                                       if (e == null) {
+                                           // your logic here
+                                           String name[] = new String[markers.size()];
+                                           // String color;
 
-                    for(int i = 0; i<markers.size();i++){
-                        aux[i] = markers.get(i).getString("name");
-                    }
+                                           for (int i = 0; i < markers.size(); i++) {
+                                               name[i] = markers.get(i).getString("name");
+                                              /* color = markers.get(i).getString("color");
+                                               getActivity().findViewById(R.id.button_color).getBackground().setColorFilter
+                                                       (0xFFFF0000,PorterDuff.Mode.MULTIPLY);*/
+                                           }
 
-                    // specify an adapter (see also next example)
+                                           // specify an adapter (see also next example)
 
-                    mAdapter = new MyAdapter(getActivity() , aux);
-                    mListView.setAdapter(mAdapter);
+                                           mAdapter = new MyAdapter(getActivity(), name);
+                                           mListView.setAdapter(mAdapter);
 
 
-                } else {
-                    // handle Parse Exception here
-                    e.getCause();
-                }
-            }
-        });
-
+                                       } else {
+                                           // handle Parse Exception here
+                                           e.getCause();
+                                       }
+                                   }
+                               }
+        );
         courseAdd = (FloatingActionButton) v.findViewById(R.id.button_floating);
 
         courseAdd.setOnClickListener(new View.OnClickListener() {
@@ -76,10 +84,13 @@ public class MeusCursosActivity extends Fragment {
                 Intent intent = new Intent(getActivity(), CourseRegisterActivity.class);
                 startActivity(intent);
             }
-        });
-
-        return v;
+        }
+        );
+       return v;
     }
+
+
+
 
    /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -90,6 +90,7 @@ public class CourseRegisterActivity extends AppCompatActivity {
                 saveCourse.put("name", course.getName());
                 saveCourse.put("local", course.getLocal());
                 saveCourse.put("color", course.getColor());
+
                 saveCourse.saveInBackground();
 
 

@@ -65,6 +65,22 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name=".Menu.InicialCursos"
+            android:label="@string/title_activity_inicial_cursos" >
+        </activity>
+        <activity
+            android:name=".Menu.Disciplinas"
+            android:label="@string/title_activity_disciplinas" >
+        </activity>
+        <activity
+            android:name=".Menu.Provas"
+            android:label="@string/title_activity_provas" >
+        </activity>
+        <activity
+            android:name=".Menu.Trabalhos"
+            android:label="@string/title_activity_trabalhos" >
+        </activity>
     </application>
 
 </manifest>
