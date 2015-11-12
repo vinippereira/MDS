@@ -98,6 +98,7 @@ public class Inicial extends AppCompatActivity implements
         // Inicializa o ViewPager
         this.intialiseViewPager();
 
+
         // Enable Local Datastore.
         try {
 
@@ -107,6 +108,7 @@ public class Inicial extends AppCompatActivity implements
         catch (Exception e) {
 
         }
+
 //        ParseObject testObject = new ParseObject("TestObject");
 //        testObject.put("TESTE", "RODOU");
 //        testObject.saveInBackground();
