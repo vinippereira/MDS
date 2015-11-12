@@ -5,12 +5,16 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat.Light" >
-
+        android:theme="@style/AppTheme" >
         <fragment
             android:name=".Menu.MenuActivity"
             android:label="@string/app_name" >
@@ -24,11 +28,11 @@
             android:name=".Menu.TrabalhoActivity"
             android:label="@string/title_activity_trabalho" >
         </activity>
-        <activity
+
+        <fragment
             android:name=".Menu.LocalActivity"
             android:label="@string/title_activity_local" >
-        </activity>
-
+        </fragment>
         <fragment
             android:name=".Menu.FaltasActivity"
             android:label="@string/title_activity_falta" >
@@ -45,20 +49,22 @@
         </activity>
 
         <fragment
-            android:name=".Menu.MeusCursosActivity"
-            android:label="@string/title_activity_meus_cursos" >
-        </fragment>
-
-        <fragment
             android:name=".Menu.CadastroCursos"
             android:label="@string/title_activity_cadastro_cursos" >
         </fragment>
-
-        <activity
+        <fragment
             android:name=".Menu.HorarioCursos"
             android:label="@string/title_activity_horario_cursos" >
-        </activity>
+        </fragment>
 
+        <activity
+            android:name=".Menu.CourseRegisterActivity"
+            android:label="@string/title_activity_course_register" >
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
     </application>
 
 </manifest>

@@ -2,6 +2,9 @@ package com.ufscar.alunos.mqc.Menu;
 
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +31,7 @@ public class MeusCursosActivity extends Fragment {
     //Identificadores para a lista
     private ListView mListView;
     private MyAdapter mAdapter;
+    private FloatingActionButton courseAdd;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -61,6 +65,16 @@ public class MeusCursosActivity extends Fragment {
                     // handle Parse Exception here
                     e.getCause();
                 }
+            }
+        });
+
+        courseAdd = (FloatingActionButton) v.findViewById(R.id.button_floating);
+
+        courseAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CourseRegisterActivity.class);
+                startActivity(intent);
             }
         });
 
