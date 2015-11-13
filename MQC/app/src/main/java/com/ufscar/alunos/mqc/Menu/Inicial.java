@@ -149,12 +149,13 @@ public class Inicial extends AppCompatActivity implements
                 this.mTabHost.newTabSpec("Tab3").setIndicator("Horário"),
                 (tabInfo = new TabInfo("Tab3", HorarioCursos.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        mTabHost.setOnTabChangedListener(this);
+        //mTabHost.setOnTabChangedListener(this);
 
         Inicial.AddTab(this, this.mTabHost,
                 this.mTabHost.newTabSpec("Tab3").setIndicator("Local"),
                 (tabInfo = new TabInfo("Tab3", LocalActivity.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
+
         mTabHost.setOnTabChangedListener(this);
 
         //obs: dentro do esquema de abas do curso eh que terá a aba de menu ....

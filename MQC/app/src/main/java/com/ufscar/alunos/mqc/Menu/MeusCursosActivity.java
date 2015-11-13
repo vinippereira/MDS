@@ -10,8 +10,10 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -61,6 +63,10 @@ public class MeusCursosActivity extends Fragment {
             }
         }
         );
+
+//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//        });
 
 
        return v;

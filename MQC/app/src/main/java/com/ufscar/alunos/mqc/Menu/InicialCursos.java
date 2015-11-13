@@ -77,7 +77,7 @@ public class InicialCursos extends AppCompatActivity implements
         setContentView(R.layout.activity_inicial_cursos);
 
         toolbar = (Toolbar) findViewById(R.id.toolbarCursos);
-        toolbar.setTitle("Task App");
+        toolbar.setTitle(getIntent().getStringExtra("course"));
         setSupportActionBar(toolbar);
 
         // Inicializa o TabHost
@@ -133,10 +133,10 @@ public class InicialCursos extends AppCompatActivity implements
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
 
         InicialCursos.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab3").setIndicator("Provas"),
-                (tabInfo = new TabInfo("Tab3", Provas.class, args)));
+                this.mTabHost.newTabSpec("Tab2").setIndicator("Provas"),
+                (tabInfo = new TabInfo("Tab2", Provas.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        mTabHost.setOnTabChangedListener(this);
+        //mTabHost.setOnTabChangedListener(this);
 
         InicialCursos.AddTab(this, this.mTabHost,
                 this.mTabHost.newTabSpec("Tab3").setIndicator("Trabalhos"),

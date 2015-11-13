@@ -63,5 +63,6 @@
     <string name="title_activity_disciplinas">Disciplinas</string>
     <string name="title_activity_provas">Provas</string>
     <string name="title_activity_trabalhos">Trabalhos</string>
+    <string name="title_activity_subject_register">SubjectRegisterActivity</string>
 
 </resources>

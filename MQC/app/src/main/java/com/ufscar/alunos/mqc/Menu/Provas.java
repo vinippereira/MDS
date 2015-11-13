@@ -1,17 +1,12 @@
 package com.ufscar.alunos.mqc.Menu;
 
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.parse.*;
 
 import com.ufscar.alunos.mqc.R;
 
@@ -24,7 +19,7 @@ public class Provas extends Fragment {
             return null;
         }
 
-        View rootView = inflater.inflate(R.layout.activity_disciplinas, container, false);
+        View rootView = inflater.inflate(R.layout.activity_provas, container, false);
 
         return rootView;
     }

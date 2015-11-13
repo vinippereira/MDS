@@ -10,10 +10,10 @@ public class Course {
     private String name;
     private String color;
     private String local;
-    private ArrayList<Subject> subjects;
+    private ArrayList<Disciplina> disciplinas;
 
     public Course(){
-        subjects = new ArrayList<>();
+        disciplinas = new ArrayList<>();
     }
 
     public String getName() {
@@ -24,12 +24,12 @@ public class Course {
         this.name = name;
     }
 
-    public ArrayList<Subject> getSubjects() {
-        return subjects;
+    public ArrayList<Disciplina> getDisciplinas() {
+        return disciplinas;
     }
 
-    public void setSubjects(ArrayList<Subject> subjects) {
-        this.subjects = subjects;
+    public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
     }
 
     public String getColor() {
