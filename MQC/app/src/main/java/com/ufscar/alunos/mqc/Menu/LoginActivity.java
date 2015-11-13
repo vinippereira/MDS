@@ -167,8 +167,10 @@ public class LoginActivity extends AppCompatActivity {
 
             showProgress(true);
 
+            //TODO TROCAR ESTAS LINHAS IMPORTANTE
             ParseUser.logInInBackground(mEmailView.getText().toString(), mPasswordView.getText().toString(), new LogInCallback() {
-                public void done(ParseUser user, ParseException e) {
+//            ParseUser.logInInBackground("lucas@gmail.com", "jaqueline", new LogInCallback() {
+                  public void done(ParseUser user, ParseException e) {
                     if (user != null) {
                         showProgress(false);
                         Intent intent = new Intent(getApplication(), Inicial.class);

@@ -7,10 +7,10 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context="MeusCursosActivity">
 
 
-    <TextView android:text="Listagem dos cursos cadastrados"
-        android:id="@+id/txtViewMcursos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!--<TextView android:text="Listagem dos cursos cadastrados"-->
+        <!--android:id="@+id/txtViewMcursos"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
 
     <android.support.design.widget.FloatingActionButton
@@ -26,7 +26,6 @@
         android:layout_alignParentEnd="true" />
 
     <ListView
-        android:layout_below="@+id/txtViewMcursos"
         android:id="@+id/cursos_list_view"
         android:scrollbars="vertical"
         android:layout_width="match_parent"

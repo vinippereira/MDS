@@ -47,8 +47,51 @@ public class MeusCursosActivity extends Fragment {
         View v = inflater.inflate(R.layout.activity_meus_cursos, container, false);
         mListView = (ListView) v.findViewById(R.id.cursos_list_view);
 
+        courserLoad();
+
+        courseAdd = (FloatingActionButton) v.findViewById(R.id.button_floating);
+
+        courseAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CourseRegisterActivity.class);
+                startActivity(intent);
+
+                getActivity().finish();
+            }
+        }
+        );
+
+
+       return v;
+    }
+
+      /* @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_meus_cursos, menu);
+        return true;
+    }*/
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void courserLoad(){
         //Acessa todos os dados de uma tabela
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Course");
+        query.whereEqualTo("owner", ParseUser.getCurrentUser());
         query.findInBackground(new FindCallback<ParseObject>() {
                                    public void done(List<ParseObject> markers, ParseException e) {
                                        if (e == null) {
@@ -58,9 +101,9 @@ public class MeusCursosActivity extends Fragment {
 
                                            for (int i = 0; i < markers.size(); i++) {
                                                name[i] = markers.get(i).getString("name");
-                                              /* color = markers.get(i).getString("color");
-                                               getActivity().findViewById(R.id.button_color).getBackground().setColorFilter
-                                                       (0xFFFF0000,PorterDuff.Mode.MULTIPLY);*/
+                                               //color = markers.get(i).getString("color");
+//                                               getActivity().findViewById(R.id.button_color).getBackground().setColorFilter
+//                                                       (0xFFFF0000,PorterDuff.Mode.MULTIPLY);
                                            }
 
                                            // specify an adapter (see also next example)
@@ -76,42 +119,6 @@ public class MeusCursosActivity extends Fragment {
                                    }
                                }
         );
-        courseAdd = (FloatingActionButton) v.findViewById(R.id.button_floating);
-
-        courseAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CourseRegisterActivity.class);
-                startActivity(intent);
-            }
-        }
-        );
-       return v;
     }
-
-
-
-
-   /* @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_meus_cursos, menu);
-        return true;
-    }*/
-
-        @Override
-        public boolean onOptionsItemSelected (MenuItem item){
-            // Handle action bar item clicks here. The action bar will
-            // automatically handle clicks on the Home/Up button, so long
-            // as you specify a parent activity in AndroidManifest.xml.
-            int id = item.getItemId();
-
-            //noinspection SimplifiableIfStatement
-            if (id == R.id.action_settings) {
-                return true;
-            }
-
-            return super.onOptionsItemSelected(item);
-        }
 
 }

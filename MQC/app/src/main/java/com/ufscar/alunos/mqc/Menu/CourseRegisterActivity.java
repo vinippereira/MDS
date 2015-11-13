@@ -2,6 +2,7 @@ package com.ufscar.alunos.mqc.Menu;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -96,6 +97,8 @@ public class CourseRegisterActivity extends AppCompatActivity {
 
                 saveCourse.saveInBackground();
 
+                Intent intent = new Intent(getApplication(), Inicial.class);
+                startActivity(intent);
 
                 Context context = getApplicationContext();
                 CharSequence text = "Curso salvo com sucesso!";
@@ -107,9 +110,15 @@ public class CourseRegisterActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
 
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
 
-
+        Intent intent = new Intent(getApplication(), Inicial.class);
+        startActivity(intent);
     }
 
 }
