@@ -3,29 +3,18 @@ package com.ufscar.alunos.mqc.Menu;
 
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.parse.*;
 
 
 import android.support.design.widget.FloatingActionButton;
+import android.widget.Toast;
 
 import com.ufscar.alunos.mqc.R;
 
@@ -56,13 +45,19 @@ public class Disciplinas extends Fragment {
         discAdd.setOnClickListener(new View.OnClickListener() {
                                        @Override
                                        public void onClick(View view) {
-                                           Intent intent = new Intent(getActivity(),SubjectRegisterActivity.class);
+
+                                           Log.i("Disciplinas",((InicialCursos)getActivity()).getName_course());
+
+                                           Intent intent = new Intent(getActivity(), DiscRegisterActivity.class);
+                                           intent.putExtra("course", ((InicialCursos)getActivity()).getName_course());
                                            startActivity(intent);
 
                                            // getActivity().finish();
                                        }
                                    }
         );
+
+
 
 
 

@@ -76,7 +76,7 @@
         </fragment>
 
         <activity
-            android:name=".Menu.SubjectRegisterActivity"
+            android:name=".Menu.DiscRegisterActivity"
             android:label="@string/title_activity_subject_register">
         </activity>
 

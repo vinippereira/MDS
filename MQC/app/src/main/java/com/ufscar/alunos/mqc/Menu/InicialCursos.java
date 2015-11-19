@@ -35,6 +35,8 @@ public class InicialCursos extends AppCompatActivity implements
     private PagerAdapter mPagerAdapter;
     private Toolbar toolbar;
 
+    private String name_course;
+
     // Informação da Tab
     private class TabInfo {
         private String tag;
@@ -66,6 +68,10 @@ public class InicialCursos extends AppCompatActivity implements
         }
     }
 
+    public String getName_course() {
+        return name_course;
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getSupportActionBar().hide();
@@ -79,6 +85,9 @@ public class InicialCursos extends AppCompatActivity implements
         toolbar = (Toolbar) findViewById(R.id.toolbarCursos);
         toolbar.setTitle(getIntent().getStringExtra("course"));
         setSupportActionBar(toolbar);
+
+        name_course = getIntent().getStringExtra("course");
+
 
         // Inicializa o TabHost
         this.initialiseTabHost(savedInstanceState);
