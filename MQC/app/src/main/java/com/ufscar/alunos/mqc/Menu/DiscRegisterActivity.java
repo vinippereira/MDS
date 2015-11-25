@@ -172,7 +172,12 @@ public class DiscRegisterActivity extends AppCompatActivity   {
                                                        saveDisc.put("course", markers.get(0));
                                                        saveDisc.saveInBackground();
 
+                                                       Intent intent = new Intent(getApplication(), InicialCursos.class);
+                                                       startActivity(intent);
+
                                                        Toast.makeText(getApplicationContext(), "Diciplina salva com sucesso!", Toast.LENGTH_LONG).show();
+
+                                                       finish();
                                                    } else {
                                                        // handle Parse Exception here
                                                        e.getCause();
@@ -196,7 +201,12 @@ public class DiscRegisterActivity extends AppCompatActivity   {
                                                        saveDisc.put("course", markers.get(0));
                                                        saveDisc.saveInBackground();
 
+                                                       Intent intent = new Intent(getApplication(), InicialCursos.class);
+                                                       startActivity(intent);
+
                                                        Toast.makeText(getApplicationContext(), "Diciplina salva com sucesso!", Toast.LENGTH_LONG).show();
+
+                                                       finish();
                                                    } else {
                                                        // handle Parse Exception here
                                                        e.getCause();
@@ -221,7 +231,12 @@ public class DiscRegisterActivity extends AppCompatActivity   {
 
                                                        saveDisc.saveInBackground();
 
+                                                       Intent intent = new Intent(getApplication(), InicialCursos.class);
+                                                       startActivity(intent);
+
                                                        Toast.makeText(getApplicationContext(), "Diciplina salva com sucesso!", Toast.LENGTH_LONG).show();
+
+                                                       finish();
                                                    } else {
                                                        // handle Parse Exception here
                                                        e.getCause();
