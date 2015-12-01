@@ -5,12 +5,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="MeusCursosActivity">
 
-
     <!--<TextView android:text="Listagem dos cursos cadastrados"-->
         <!--android:id="@+id/txtViewMcursos"-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content" />-->
-
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/button_floating"

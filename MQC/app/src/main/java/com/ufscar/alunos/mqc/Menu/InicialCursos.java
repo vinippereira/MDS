@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Vector;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
@@ -183,6 +184,15 @@ public class InicialCursos extends AppCompatActivity implements
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+
+        Intent intent = new Intent(getApplication(), Inicial.class);
+        startActivity(intent);
     }
 
 

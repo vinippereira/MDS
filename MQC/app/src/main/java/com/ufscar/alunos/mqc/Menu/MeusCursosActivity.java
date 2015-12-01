@@ -8,8 +8,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,7 +48,7 @@ public class MeusCursosActivity extends Fragment {
         View v = inflater.inflate(R.layout.activity_meus_cursos, container, false);
         mListView = (ListView) v.findViewById(R.id.cursos_list_view);
 
-        courserLoad();
+        courseLoad();
 
         courseAdd = (FloatingActionButton) v.findViewById(R.id.button_floating);
 
@@ -94,7 +93,7 @@ public class MeusCursosActivity extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    public void courserLoad(){
+    public void courseLoad(){
         //Acessa todos os dados de uma tabela
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Course");
         query.whereEqualTo("owner", ParseUser.getCurrentUser());
