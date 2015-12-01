@@ -65,5 +65,6 @@
     <string name="title_activity_trabalhos">Trabalhos</string>
     <string name="title_activity_subject_register">SubjectRegisterActivity</string>
     <string name="title_activity_expandable">ExpandableActivity</string>
+    <string name="title_activity_prov_trab_register">Novo evento</string>
 
 </resources>

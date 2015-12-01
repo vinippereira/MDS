@@ -177,6 +177,8 @@ public class InicialProvTrab extends AppCompatActivity implements
 
         Intent intent = new Intent(getApplication(), InicialCursos.class);
         startActivity(intent);
+
+        finish();
     }
 
 

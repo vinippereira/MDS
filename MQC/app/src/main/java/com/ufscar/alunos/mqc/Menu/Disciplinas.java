@@ -67,7 +67,7 @@ public class Disciplinas extends Fragment {
                 Intent intent = new Intent(getActivity(), InicialProvTrab.class);
 
                 //intent.putExtra("disciplina", ((InicialCursos)getActivity()).getName_course());
-                intent.putExtra("disciplina", "X");
+                intent.putExtra("disciplina", "DisciplinaX");
                 startActivity(intent);
 
                 getActivity().finish();

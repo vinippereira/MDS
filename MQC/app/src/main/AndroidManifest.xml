@@ -55,22 +55,18 @@
             android:name=".Menu.Disciplinas"
             android:label="@string/title_activity_disciplinas" >
         </fragment>
-
         <fragment
             android:name=".Menu.Provas"
             android:label="@string/title_activity_provas" >
         </fragment>
-
         <fragment
             android:name=".Menu.Trabalhos"
             android:label="@string/title_activity_trabalhos" >
         </fragment>
-
         <fragment
             android:name=".Menu.HorarioProvas"
             android:label="@string/title_activity_provas" >
         </fragment>
-
         <fragment
             android:name=".Menu.HorarioTrabalhos"
             android:label="@string/title_activity_trabalhos" >
@@ -84,7 +80,11 @@
             android:name=".Menu.InicialProvTrab"
             android:label="@string/title_activity_expandable" >
         </activity>
-
+        <activity
+            android:name=".Menu.ProvTrabRegisterActivity"
+            android:label="@string/title_activity_prov_trab_register"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

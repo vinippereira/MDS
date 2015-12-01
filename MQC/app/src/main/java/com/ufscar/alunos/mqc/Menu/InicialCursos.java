@@ -186,6 +186,8 @@ public class InicialCursos extends AppCompatActivity implements
 
         Intent intent = new Intent(getApplication(), Inicial.class);
         startActivity(intent);
+
+        finish();
     }
 
 

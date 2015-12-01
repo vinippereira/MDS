@@ -1,5 +1,6 @@
 package com.ufscar.alunos.mqc.Menu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,13 +24,20 @@ public class Trabalhos  extends Fragment {
         }
 
         View rootView = inflater.inflate(R.layout.activity_trabalhos, container, false);
-//
-//        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+
+        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.button_floating_trabalhos);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ProvTrabRegisterActivity.class);
+
+                intent.putExtra("disciplina", ((InicialProvTrab)getActivity()).getName_disc());
+                intent.putExtra("evento", "trabalho");
+                startActivity(intent);
+
+                getActivity().finish();
+            }
+        });
 
         return rootView;
     }

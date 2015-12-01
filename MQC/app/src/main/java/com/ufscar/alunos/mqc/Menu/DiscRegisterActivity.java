@@ -367,4 +367,16 @@ public class DiscRegisterActivity extends AppCompatActivity   {
                 }
         );
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+
+        Intent intent = new Intent(getApplication(), InicialCursos.class);
+        intent.putExtra("course",name_course);
+        startActivity(intent);
+
+        finish();
+    }
 }
