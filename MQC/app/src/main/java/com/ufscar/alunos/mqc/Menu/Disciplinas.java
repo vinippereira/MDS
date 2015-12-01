@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 
 import android.support.design.widget.FloatingActionButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ufscar.alunos.mqc.R;
@@ -46,16 +47,32 @@ public class Disciplinas extends Fragment {
                                        @Override
                                        public void onClick(View view) {
 
-                                           Log.i("Disciplinas",((InicialCursos)getActivity()).getName_course());
+//                                           Log.i("Disciplinas",((InicialCursos)getActivity()).getName_course());
 
                                            Intent intent = new Intent(getActivity(), DiscRegisterActivity.class);
                                            intent.putExtra("course", ((InicialCursos)getActivity()).getName_course());
                                            startActivity(intent);
 
-                                           // getActivity().finish();
+                                           getActivity().finish();
                                        }
                                    }
         );
+
+        TextView teste = (TextView) rootView.findViewById(R.id.textView_teste);
+
+        teste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getActivity(), InicialProvTrab.class);
+
+                //intent.putExtra("disciplina", ((InicialCursos)getActivity()).getName_course());
+                intent.putExtra("disciplina", "X");
+                startActivity(intent);
+
+                getActivity().finish();
+            }
+        });
 
 
 

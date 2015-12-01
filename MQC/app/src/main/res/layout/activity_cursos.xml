@@ -3,12 +3,20 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:id="@+id/LinearLayout1"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    tools:context="MeusCursosActivity">
+    tools:context="Cursos">
 
     <!--<TextView android:text="Listagem dos cursos cadastrados"-->
         <!--android:id="@+id/txtViewMcursos"-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content" />-->
+
+
+    <ListView
+        android:id="@+id/cursos_list_view"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/button_floating"
@@ -22,11 +30,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
 
-    <ListView
-        android:id="@+id/cursos_list_view"
-        android:scrollbars="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </RelativeLayout>
 

@@ -1,16 +1,13 @@
 package com.ufscar.alunos.mqc.Menu;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Vector;
-
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TabHost;
@@ -18,16 +15,21 @@ import android.widget.TabHost.TabContentFactory;
 import android.widget.TextView;
 
 import com.ufscar.alunos.mqc.R;
-import com.parse.*;
 
-public class Inicial extends AppCompatActivity implements
+import java.util.HashMap;
+import java.util.List;
+import java.util.Vector;
+
+public class InicialProvTrab extends AppCompatActivity implements
         TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
 
     private TabHost mTabHost;
     private ViewPager mViewPager;
-    private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, Inicial.TabInfo>();
+    private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, InicialProvTrab.TabInfo>();
     private PagerAdapter mPagerAdapter;
     private Toolbar toolbar;
+
+    private String name_disc;
 
     // Informação da Tab
     private class TabInfo {
@@ -60,6 +62,10 @@ public class Inicial extends AppCompatActivity implements
         }
     }
 
+    public String getName_disc() {
+        return name_disc;
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getSupportActionBar().hide();
@@ -68,11 +74,14 @@ public class Inicial extends AppCompatActivity implements
 
 
         // Infla o layout
-        setContentView(R.layout.activity_inicial);
+        setContentView(R.layout.activity_inicial_prov_trab);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Task App");
+        toolbar = (Toolbar) findViewById(R.id.toolbarProvTrab);
+        toolbar.setTitle(getIntent().getStringExtra("disciplina"));
         setSupportActionBar(toolbar);
+
+        name_disc = getIntent().getStringExtra("disciplina");
+
 
         // Inicializa o TabHost
         this.initialiseTabHost(savedInstanceState);
@@ -92,20 +101,7 @@ public class Inicial extends AppCompatActivity implements
         // Inicializa o ViewPager
         this.intialiseViewPager();
 
-
         // Enable Local Datastore.
-        try {
-
-            Parse.enableLocalDatastore(this);
-            Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
-        }
-        catch (Exception e) {
-
-        }
-
-//        ParseObject testObject = new ParseObject("TestObject");
-//        testObject.put("TESTE", "RODOU");
-//        testObject.saveInBackground();
 
     }
 
@@ -118,11 +114,10 @@ public class Inicial extends AppCompatActivity implements
     private void intialiseViewPager() {
 
         List<Fragment> fragments = new Vector<Fragment>();
-        fragments.add(Fragment.instantiate(this, Cursos.class.getName()));
-        fragments.add(Fragment.instantiate(this, HorarioCursos.class.getName()));
-        fragments.add(Fragment.instantiate(this, Local.class.getName()));
+        fragments.add(Fragment.instantiate(this, Provas.class.getName()));
+        fragments.add(Fragment.instantiate(this, Trabalhos.class.getName()));
 
-        this.mPagerAdapter = new com.ufscar.alunos.mqc.Menu.ViewPagerAdapter(
+        this.mPagerAdapter = new ViewPagerAdapter(
                 super.getSupportFragmentManager(), fragments);
         this.mViewPager = (ViewPager) super.findViewById(R.id.viewpager);
         this.mViewPager.setAdapter(this.mPagerAdapter);
@@ -134,29 +129,20 @@ public class Inicial extends AppCompatActivity implements
         mTabHost.setup();
         TabInfo tabInfo = null;
 
-        Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab1").setIndicator("Meus Cursos"),
-                (tabInfo = new TabInfo("Tab1", Cursos.class, args)));
+        InicialProvTrab.AddTab(this, this.mTabHost,
+                this.mTabHost.newTabSpec("Tab1").setIndicator("Provas"),
+                (tabInfo = new TabInfo("Tab1", Provas.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
 
-        Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab3").setIndicator("Horário"),
-                (tabInfo = new TabInfo("Tab3", HorarioCursos.class, args)));
+        InicialProvTrab.AddTab(this, this.mTabHost,
+                this.mTabHost.newTabSpec("Tab2").setIndicator("Trabalhos"),
+                (tabInfo = new TabInfo("Tab2", Trabalhos.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        //mTabHost.setOnTabChangedListener(this);
-
-        Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab3").setIndicator("Local"),
-                (tabInfo = new TabInfo("Tab3", Local.class, args)));
-        this.mapTabInfo.put(tabInfo.tag, tabInfo);
-
-        mTabHost.setOnTabChangedListener(this);
 
         //obs: dentro do esquema de abas do curso eh que terá a aba de menu ....
-
     }
 
-    private static void AddTab(Inicial activity, TabHost tabHost,
+    private static void AddTab(InicialProvTrab activity, TabHost tabHost,
                                TabHost.TabSpec tabSpec, TabInfo tabInfo) {
         // Attach uma Tab view factory para o spec
         tabSpec.setContent(activity.new TabFactory(activity));
@@ -182,6 +168,15 @@ public class Inicial extends AppCompatActivity implements
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+
+        Intent intent = new Intent(getApplication(), InicialCursos.class);
+        startActivity(intent);
     }
 
 

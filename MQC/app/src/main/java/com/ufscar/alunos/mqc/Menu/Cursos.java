@@ -2,25 +2,16 @@ package com.ufscar.alunos.mqc.Menu;
 
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+
 import com.parse.*;
 
 import android.support.design.widget.FloatingActionButton;
@@ -29,7 +20,7 @@ import com.ufscar.alunos.mqc.R;
 
 import java.util.List;
 
-public class MeusCursosActivity extends Fragment {
+public class Cursos extends Fragment {
 
     private FloatingActionButton couseAdd;
     //Identificadores para a lista
@@ -45,7 +36,7 @@ public class MeusCursosActivity extends Fragment {
             return null;
         }
 
-        View v = inflater.inflate(R.layout.activity_meus_cursos, container, false);
+        View v = inflater.inflate(R.layout.activity_cursos, container, false);
         mListView = (ListView) v.findViewById(R.id.cursos_list_view);
 
         courseLoad();

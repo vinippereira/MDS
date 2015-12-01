@@ -1,11 +1,9 @@
 package com.ufscar.alunos.mqc.Menu;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,23 +11,17 @@ import android.support.v4.app.Fragment;
 
 import com.ufscar.alunos.mqc.R;
 
-public class Trabalhos  extends Fragment {
+public class Local extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
 
         if (container == null) {
             return null;
         }
 
-        View rootView = inflater.inflate(R.layout.activity_trabalhos, container, false);
-//
-//        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+        View rootView = inflater.inflate(R.layout.activity_local, container, false);
 
         return rootView;
     }
@@ -56,4 +48,3 @@ public class Trabalhos  extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 }
-

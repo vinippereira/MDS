@@ -20,6 +20,15 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Implementar lista de Disciplinas"
+        android:id="@+id/textView_teste"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+
     <!--<ListView-->
         <!--android:id="@+id/disc_list_view"-->
         <!--android:scrollbars="vertical"-->

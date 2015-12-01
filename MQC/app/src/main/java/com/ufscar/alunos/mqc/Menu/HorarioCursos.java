@@ -140,14 +140,14 @@ public class HorarioCursos extends Fragment {
                                                if (!p.getString("day_1").isEmpty()){
 
                                                    TextView t = listTextViewHour.get(p.getString("day_1"));
-                                                   String text = p.getString("hour_1")+" - "+p.getString("name")+"\n";
+                                                   String text = p.getString("hour_1")+" - "+p.getString("name")+"    ("+p.getParseObject("course").getString("name")+")\n";
                                                    t.append(text);
                                                }
 
                                                if (!p.getString("day_2").isEmpty()){
 
                                                    TextView t = listTextViewHour.get(p.getString("day_2"));
-                                                   String text = p.getString("hour_2")+" - "+p.getString("name")+"\n";
+                                                   String text = p.getString("hour_2")+" - "+p.getString("name")+"    ("+p.getParseObject("course").getString("name")+")\n";
                                                    t.append(text);
                                                }
                                            }

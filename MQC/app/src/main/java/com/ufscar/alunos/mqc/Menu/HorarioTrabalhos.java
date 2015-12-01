@@ -1,27 +1,25 @@
 package com.ufscar.alunos.mqc.Menu;
 
-import android.app.Activity;
+
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
 
 import com.ufscar.alunos.mqc.R;
 
-public class LocalActivity extends Fragment {
+public class HorarioTrabalhos extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
         if (container == null) {
             return null;
         }
 
-        View rootView = inflater.inflate(R.layout.activity_local, container, false);
+        View rootView = inflater.inflate(R.layout.activity_horario_trabalhos, container, false);
 
         return rootView;
     }
@@ -47,4 +45,5 @@ public class LocalActivity extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
