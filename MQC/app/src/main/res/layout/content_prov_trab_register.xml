@@ -13,7 +13,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/editText_name_pt"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -22,44 +22,31 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/editText2_desc_pt"
         android:hint="Descrição"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/editText_name_pt"
         android:layout_alignParentStart="true"
         android:layout_marginTop="23dp"
-        android:layout_alignEnd="@+id/editText" />
-
-    <TextClock
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textClock"
-        android:layout_marginTop="82dp"
-        android:textSize="35dp"
-        android:layout_below="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2" />
+        android:layout_alignEnd="@+id/editText_name_pt" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_alignBottom="@+id/textClock"
+        android:id="@+id/editText_date"
+        android:hint="Data"
+        android:layout_below="@+id/editText2_desc_pt"
         android:layout_alignParentStart="true"
-        android:hint="Data"/>
+        android:layout_marginTop="81dp"
+        android:layout_alignEnd="@+id/editText2_desc_pt" />
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView2"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Salvar"
-        android:id="@+id/button"
+        android:id="@+id/button_save_pt"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="56dp" />

@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
@@ -58,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
     private View mProgressView;
     private View mLoginFormView;
     private boolean isLogged;
+    private WifiManager wifiManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +81,24 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
+        //checa o status do wifi e pergunta se o usuário deseja liga-lo
+        wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+        if(wifiManager.isWifiEnabled()){
+            wifiManager.setWifiEnabled(false);
+        }else{
+            wifiManager.setWifiEnabled(true);
+
+        }
+
         // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
+        try {
+            Parse.enableLocalDatastore(this);
+            Parse.initialize(this, "MZILWm0EqFyy1lOauqRy9gHB1a4j5kJZ6pW1Z6U5", "hzVeLBtrkieewXP3r1WfvFMlh1xK33LAdH0SNV7b");
+        }
+
+        catch(Exception e){
+
+        }
 
 
         // Set up the login form.

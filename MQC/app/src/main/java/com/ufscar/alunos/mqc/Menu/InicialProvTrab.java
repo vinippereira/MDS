@@ -30,6 +30,7 @@ public class InicialProvTrab extends AppCompatActivity implements
     private Toolbar toolbar;
 
     private String name_disc;
+    private String objetcID_disc;
 
     // Informação da Tab
     private class TabInfo {
@@ -66,6 +67,8 @@ public class InicialProvTrab extends AppCompatActivity implements
         return name_disc;
     }
 
+    public String getObjetcID_disc(){return objetcID_disc;}
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getSupportActionBar().hide();
@@ -81,6 +84,7 @@ public class InicialProvTrab extends AppCompatActivity implements
         setSupportActionBar(toolbar);
 
         name_disc = getIntent().getStringExtra("disciplina");
+        objetcID_disc = getIntent().getStringExtra("objectID_disc");
 
 
         // Inicializa o TabHost

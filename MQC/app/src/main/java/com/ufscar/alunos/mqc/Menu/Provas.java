@@ -32,7 +32,8 @@ public class Provas extends Fragment {
                 Intent intent = new Intent(getActivity(), ProvTrabRegisterActivity.class);
 
                 intent.putExtra("disciplina", ((InicialProvTrab)getActivity()).getName_disc());
-                intent.putExtra("evento", "prova");
+                intent.putExtra("evento", "Prova");
+                intent.putExtra("objectID_disc",((InicialProvTrab)getActivity()).getObjetcID_disc());
                 startActivity(intent);
 
                 getActivity().finish();
