@@ -71,6 +71,7 @@ public class MyAdapter extends BaseAdapter {
                             if (e == null) {
                                 Intent intent = new Intent(context, InicialCursos.class);
                                 intent.putExtra("course", cList.get(0).getString("name"));
+                                intent.putExtra("id", cList.get(0).getObjectId());
                                 context.startActivity(intent);
                             } else {
                                 Log.d("score", "Error: " + e.getMessage());
