@@ -31,6 +31,8 @@ public class InicialProvTrab extends AppCompatActivity implements
 
     private String name_disc;
     private String objetcID_disc;
+    private String course;
+    private String courseID; //objectId
 
     // Informação da Tab
     private class TabInfo {
@@ -69,6 +71,8 @@ public class InicialProvTrab extends AppCompatActivity implements
 
     public String getObjetcID_disc(){return objetcID_disc;}
 
+    public String getCourse(){return course;}
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getSupportActionBar().hide();
@@ -85,7 +89,8 @@ public class InicialProvTrab extends AppCompatActivity implements
 
         name_disc = getIntent().getStringExtra("disciplina");
         objetcID_disc = getIntent().getStringExtra("objectID_disc");
-
+        course = getIntent().getStringExtra("course");
+        courseID = getIntent().getStringExtra("id");
 
         // Inicializa o TabHost
         this.initialiseTabHost(savedInstanceState);
@@ -180,6 +185,8 @@ public class InicialProvTrab extends AppCompatActivity implements
         super.onBackPressed();
 
         Intent intent = new Intent(getApplication(), InicialCursos.class);
+        intent.putExtra("course",course);
+        intent.putExtra("id",courseID);
         startActivity(intent);
 
         finish();

@@ -83,11 +83,8 @@ public class LoginActivity extends AppCompatActivity {
 
         //checa o status do wifi e pergunta se o usuário deseja liga-lo
         wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
-        if(wifiManager.isWifiEnabled()){
-            wifiManager.setWifiEnabled(false);
-        }else{
+        if(!wifiManager.isWifiEnabled()){
             wifiManager.setWifiEnabled(true);
-
         }
 
         // Enable Local Datastore.

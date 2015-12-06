@@ -57,7 +57,7 @@ public class MyAdapter extends BaseAdapter {
         TextView name = (TextView) root.findViewById(R.id.textRowId);
         name.setText(list[position]);
 
-        //premite a cada linha da lista ser clicavel
+        //permite a cada linha da lista ser clicavel
         root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

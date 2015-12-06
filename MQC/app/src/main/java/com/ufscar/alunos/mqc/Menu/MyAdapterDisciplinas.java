@@ -65,32 +65,39 @@ public class MyAdapterDisciplinas extends BaseAdapter{
         TextView teacher = (TextView) root.findViewById(R.id.teacher);
         teacher.setText(listTeacher[position]);
 
-//        //premite a cada linha da lista ser clicavel
-//        root.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                ParseQuery<ParseObject> query = ParseQuery.getQuery("Course");
-//                query.whereEqualTo("name", list[position]);
-//                query.whereEqualTo("owner", ParseUser.getCurrentUser());
-//
-//                query.findInBackground(new FindCallback<ParseObject>() {
-//                    public void done(List<ParseObject> cList, ParseException e) {
-//                        if (e == null) {
-//                            Intent intent = new Intent(context, InicialCursos.class);
-//                            intent.putExtra("course", cList.get(0).getString("name"));
-//                            intent.putExtra("id", cList.get(0).getString("objectId"));
-//
-//                            context.startActivity(intent);
-//                        } else {
-//                            Log.d("score", "Error: " + e.getMessage());
-//                        }
-//                    }
-//                });
-//            }
-//
-//
-//        });
+//      permite a cada linha da lista ser clicavel
+        root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("Disciplina");
+                query.whereEqualTo("name", listDisciplina[position]);
+                query.whereEqualTo("teacher", listTeacher[position]);
+                query.whereEqualTo("owner", ParseUser.getCurrentUser());
+
+                query.findInBackground(new FindCallback<ParseObject>() {
+                    public void done(List<ParseObject> cList, ParseException e) {
+                        if (e == null) {
+                            Intent intent = new Intent(context, InicialProvTrab.class);
+
+//                            Log.i("--- DISCIPLINA CLICADA",cList.get(0).getString("name"));
+//                            Log.i("--- ID CLICADO",cList.get(0).getObjectId());
+
+                            intent.putExtra("disciplina", cList.get(0).getString("name"));
+                            intent.putExtra("objectID_disc", cList.get(0).getObjectId());
+                            intent.putExtra("course", cList.get(0).getParseObject("course").getString("name"));
+                            intent.putExtra("id", cList.get(0).getParseObject("course").getObjectId());
+
+                            context.startActivity(intent);
+                        } else {
+                            Log.d("score", "Error: " + e.getMessage());
+                        }
+                    }
+                });
+            }
+
+
+        });
         return root;
     }
 

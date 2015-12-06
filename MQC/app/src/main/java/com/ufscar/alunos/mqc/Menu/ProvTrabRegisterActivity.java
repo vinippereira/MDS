@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -24,7 +25,10 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.ufscar.alunos.mqc.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ProvTrabRegisterActivity extends AppCompatActivity {
@@ -45,7 +49,7 @@ public class ProvTrabRegisterActivity extends AppCompatActivity {
 
         evento = getIntent().getStringExtra("evento");
         disc = getIntent().getStringExtra("disciplina");
-        objectID_disc = getIntent().getStringExtra("ObjectID_disc");
+        objectID_disc = getIntent().getStringExtra("objectID_disc");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -74,11 +78,26 @@ public class ProvTrabRegisterActivity extends AppCompatActivity {
                 EditText name = (EditText) findViewById(R.id.editText_name_pt);
                 EditText desc = (EditText) findViewById(R.id.editText2_desc_pt);
 
+                EditText editTextdate = (EditText) findViewById(R.id.editText_date);
+                String sdate = editTextdate.getText().toString();
+
+                DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
+                Date date = null;
+                try{
+                   date = formatter.parse(sdate);
+                }catch (Exception e){
+//                    Log.i("ERRO NA CONVERSAO DA DATA","ERRO");
+                }
+
+
                 savept.put("name", name.getText().toString());
                 savept.put("descricao", desc.getText().toString());
+                savept.put("date",date);
 
                 ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Disciplina");
-                query.whereEqualTo("ObjectID",objectID_disc);
+               // query.whereEqualTo("course", ParseObject.createWithoutData("Disciplina", objectID_disc));
+
+               query.whereEqualTo("objectId",objectID_disc);
 
                 query.findInBackground(new FindCallback<ParseObject>() {
                                            public void done(List<ParseObject> markers, ParseException e) {
@@ -87,6 +106,8 @@ public class ProvTrabRegisterActivity extends AppCompatActivity {
                                                    savept.saveInBackground();
 
                                                    Intent intent = new Intent(getApplication(), InicialProvTrab.class);
+                                                   intent.putExtra("disciplina", disc);
+                                                   intent.putExtra("objectID_disc", objectID_disc);
                                                    startActivity(intent);
 
                                                    if(evento.equalsIgnoreCase("prova"))

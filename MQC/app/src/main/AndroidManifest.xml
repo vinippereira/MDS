@@ -90,6 +90,13 @@
             android:name=".Menu.InicialProvTrab"
             android:label="@string/title_activity_expandable" >
         </activity>
+        <BaseAdapter
+            android:name=".Menu.MyAdapterProvas"
+            android:label="Provas" >
+        </BaseAdapter>
+
+
+
         <activity
             android:name=".Menu.ProvTrabRegisterActivity"
             android:label="@string/title_activity_prov_trab_register"

@@ -72,7 +72,6 @@ public class InicialCursos extends AppCompatActivity implements
 
         //getSupportActionBar().setTitle(null);
 
-
         // Infla o layout
         setContentView(R.layout.activity_inicial_cursos);
 

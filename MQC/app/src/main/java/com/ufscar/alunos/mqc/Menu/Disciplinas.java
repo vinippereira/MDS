@@ -44,8 +44,6 @@ public class Disciplinas extends Fragment {
 
         View rootView = inflater.inflate(R.layout.activity_disciplinas, container, false);
 
-
-
         mListView = (ListView) rootView.findViewById(R.id.disciplnas_list);
 
         Bundle bundle = getActivity().getIntent().getExtras();
@@ -86,11 +84,6 @@ public class Disciplinas extends Fragment {
 //                getActivity().finish();
 //            }
 //        });
-
-
-
-
-
         return rootView;
     }
 
