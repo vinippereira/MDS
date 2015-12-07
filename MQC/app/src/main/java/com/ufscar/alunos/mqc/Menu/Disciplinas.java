@@ -38,7 +38,6 @@ import Logic.Disciplina;
 public class Disciplinas extends Fragment {
 
     private FloatingActionButton discAdd;
-    private Button calendarAtividades;
     private ListView mListView;
     private MyAdapterDisciplinas mAdapter;
 
@@ -58,26 +57,7 @@ public class Disciplinas extends Fragment {
         courseLoad(id);
 
         discAdd = (FloatingActionButton) rootView.findViewById(R.id.button_floating_d);
-        calendarAtividades = (Button) rootView.findViewById(R.id.button_cAtividades);
 
-        calendarAtividades.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Calendar cal = new GregorianCalendar();
-                cal.setTime(new Date());
-                long time = cal.getTime().getTime();
-                Uri.Builder builder =
-                        CalendarContract.CONTENT_URI.buildUpon();
-                builder.appendPath("time");
-                builder.appendPath(Long.toString(time));
-                Intent intent =
-                        new Intent(Intent.ACTION_VIEW, builder.build());
-                startActivity(intent);
-                getActivity().finish();
-
-            }
-        });
 
         discAdd.setOnClickListener(new View.OnClickListener() {
                                        @Override

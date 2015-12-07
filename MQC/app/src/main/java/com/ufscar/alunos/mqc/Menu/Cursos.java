@@ -2,6 +2,8 @@ package com.ufscar.alunos.mqc.Menu;
 
 
 import android.content.Intent;
+import android.net.Uri;
+import android.provider.CalendarContract;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
@@ -18,6 +20,9 @@ import android.support.design.widget.FloatingActionButton;
 
 import com.ufscar.alunos.mqc.R;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Cursos extends Fragment {
@@ -28,6 +33,8 @@ public class Cursos extends Fragment {
     private MyAdapter mAdapter;
     private FloatingActionButton courseAdd;
     private Button openDisciplinas;
+    private Button calendarAtividades;
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,17 +49,37 @@ public class Cursos extends Fragment {
         courseLoad();
 
         courseAdd = (FloatingActionButton) v.findViewById(R.id.button_floating);
-
         courseAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CourseRegisterActivity.class);
-                startActivity(intent);
+                                         @Override
+                                         public void onClick(View view) {
+                                             Intent intent = new Intent(getActivity(), CourseRegisterActivity.class);
+                                             startActivity(intent);
 
-                getActivity().finish();
-            }
-        }
+                                             getActivity().finish();
+                                         }
+                                     }
         );
+
+        calendarAtividades = (Button) v.findViewById(R.id.button_cAtividades);
+        calendarAtividades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Calendar cal = new GregorianCalendar();
+                cal.setTime(new Date());
+                long time = cal.getTime().getTime();
+                Uri.Builder builder =
+                        CalendarContract.CONTENT_URI.buildUpon();
+                builder.appendPath("time");
+                builder.appendPath(Long.toString(time));
+                Intent intent =
+                        new Intent(Intent.ACTION_VIEW, builder.build());
+
+                startActivity(intent);
+                
+
+            }
+        });
 
 //        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //

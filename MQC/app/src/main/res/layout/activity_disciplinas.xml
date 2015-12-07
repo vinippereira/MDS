@@ -14,9 +14,9 @@
         android:src="@drawable/ic_add_white_24dp"
         android:layout_marginLeft="@dimen/fab_margin"
         android:layout_marginRight="@dimen/fab_margin"
-        android:layout_above="@+id/button_cAtividades"
-        android:layout_alignEnd="@+id/button_cAtividades"
-        android:layout_marginBottom="47dp" />
+        android:layout_marginBottom="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/disciplnas_list" />
 
     <!--<TextView-->
         <!--android:layout_width="wrap_content"-->
@@ -62,14 +62,7 @@
 
 
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Ver atividades em calendário"
-            android:paddingTop="30dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/button_cAtividades" />
+
 
 
 </RelativeLayout>
