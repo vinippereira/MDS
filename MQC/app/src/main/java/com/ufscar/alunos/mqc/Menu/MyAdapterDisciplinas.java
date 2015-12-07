@@ -31,11 +31,13 @@ public class MyAdapterDisciplinas extends BaseAdapter{
     private String[] listDisciplina;
     private String[] listTeacher;
     private Context context;
+    private String nameCourse;
 
-    public MyAdapterDisciplinas(Context context, String[] listDisciplina, String [] listTeacher){
+    public MyAdapterDisciplinas(Context context, String[] listDisciplina, String [] listTeacher, String nameCourse){
         this.context = context;
         this.listDisciplina = listDisciplina;
         this.listTeacher = listTeacher;
+        this.nameCourse = nameCourse;
     }
 
     @Override
@@ -80,12 +82,9 @@ public class MyAdapterDisciplinas extends BaseAdapter{
                         if (e == null) {
                             Intent intent = new Intent(context, InicialProvTrab.class);
 
-//                            Log.i("--- DISCIPLINA CLICADA",cList.get(0).getString("name"));
-//                            Log.i("--- ID CLICADO",cList.get(0).getObjectId());
-
                             intent.putExtra("disciplina", cList.get(0).getString("name"));
                             intent.putExtra("objectID_disc", cList.get(0).getObjectId());
-                            intent.putExtra("course", cList.get(0).getParseObject("course").getString("name"));
+                            intent.putExtra("course", nameCourse);
                             intent.putExtra("id", cList.get(0).getParseObject("course").getObjectId());
 
                             context.startActivity(intent);

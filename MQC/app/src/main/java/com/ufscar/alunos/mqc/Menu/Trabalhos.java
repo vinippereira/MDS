@@ -11,10 +11,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
+import android.widget.ListView;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.ufscar.alunos.mqc.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
 public class Trabalhos  extends Fragment {
+
+    private ListView mListView;
+    private MyAdapterTrabalhos mAdapter;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -25,6 +37,13 @@ public class Trabalhos  extends Fragment {
 
         View rootView = inflater.inflate(R.layout.activity_trabalhos, container, false);
 
+        mListView = (ListView) rootView.findViewById(R.id.trabalhos_lista);
+
+        Bundle bundle = getActivity().getIntent().getExtras();
+        String id = bundle.getString("objectID_disc");
+        trabalhosLoad(id);
+
+
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.button_floating_trabalhos);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +52,9 @@ public class Trabalhos  extends Fragment {
 
                 intent.putExtra("disciplina", ((InicialProvTrab)getActivity()).getName_disc());
                 intent.putExtra("evento", "Trabalho");
-                intent.putExtra("objectID_disc",((InicialProvTrab)getActivity()).getObjetcID_disc());
+                intent.putExtra("objectID_disc", ((InicialProvTrab) getActivity()).getObjetcID_disc());
+                intent.putExtra("course", ((InicialProvTrab) getActivity()).getCourse());
+
                 startActivity(intent);
 
                 getActivity().finish();
@@ -63,6 +84,41 @@ public class Trabalhos  extends Fragment {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void trabalhosLoad(String id) {
+        //Recupera a referencia para a string com ID do curso
+
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Trabalho");
+        query.whereEqualTo("disciplina", ParseObject.createWithoutData("Disciplina", id));
+
+        query.findInBackground(new FindCallback<ParseObject>() {
+                                   public void done(List<ParseObject> markers, ParseException e) {
+                                       if (e == null) {
+                                           // your logic here
+                                           String name[] = new String[markers.size()];
+                                           String data[] = new String[markers.size()];
+                                           DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+
+                                           for (int i = 0; i < markers.size(); i++) {
+                                               name[i] = markers.get(i).getString("name");
+                                               data[i] = df.format(markers.get(i).getDate("date"));
+                                           }
+
+                                           // specify an adapter (see also next example)
+
+                                           mAdapter =  new MyAdapterTrabalhos(getActivity(), name, data);
+                                           //mAdapter = new MyAdapterDisciplinas(getActivity(), name);
+                                           mListView.setAdapter(mAdapter);
+
+
+                                       } else {
+                                           // handle Parse Exception here
+                                           e.getCause();
+                                       }
+                                   }
+                               }
+        );
     }
 }
 

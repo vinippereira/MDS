@@ -173,6 +173,8 @@ public class DiscRegisterActivity extends AppCompatActivity   {
                                                        saveDisc.saveInBackground();
 
                                                        Intent intent = new Intent(getApplication(), InicialCursos.class);
+                                                       intent.putExtra("course",name_course);
+                                                       intent.putExtra("id", getIntent().getStringExtra("id"));
                                                        startActivity(intent);
 
                                                        Toast.makeText(getApplicationContext(), "Diciplina salva com sucesso!", Toast.LENGTH_LONG).show();
@@ -202,6 +204,8 @@ public class DiscRegisterActivity extends AppCompatActivity   {
                                                        saveDisc.saveInBackground();
 
                                                        Intent intent = new Intent(getApplication(), InicialCursos.class);
+                                                       intent.putExtra("course",name_course);
+                                                       intent.putExtra("id", getIntent().getStringExtra("id"));
                                                        startActivity(intent);
 
                                                        Toast.makeText(getApplicationContext(), "Diciplina salva com sucesso!", Toast.LENGTH_LONG).show();
@@ -232,6 +236,8 @@ public class DiscRegisterActivity extends AppCompatActivity   {
                                                        saveDisc.saveInBackground();
 
                                                        Intent intent = new Intent(getApplication(), InicialCursos.class);
+                                                       intent.putExtra("course",name_course);
+                                                       intent.putExtra("id", getIntent().getStringExtra("id"));
                                                        startActivity(intent);
 
                                                        Toast.makeText(getApplicationContext(), "Diciplina salva com sucesso!", Toast.LENGTH_LONG).show();
@@ -375,6 +381,7 @@ public class DiscRegisterActivity extends AppCompatActivity   {
 
         Intent intent = new Intent(getApplication(), InicialCursos.class);
         intent.putExtra("course",name_course);
+        intent.putExtra("id", getIntent().getStringExtra("id"));
         startActivity(intent);
 
         finish();

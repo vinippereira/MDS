@@ -120,7 +120,7 @@ public class Inicial extends AppCompatActivity implements
         List<Fragment> fragments = new Vector<Fragment>();
         fragments.add(Fragment.instantiate(this, Cursos.class.getName()));
         fragments.add(Fragment.instantiate(this, HorarioCursos.class.getName()));
-        fragments.add(Fragment.instantiate(this, Local.class.getName()));
+//        fragments.add(Fragment.instantiate(this, Local.class.getName()));
 
         this.mPagerAdapter = new com.ufscar.alunos.mqc.Menu.ViewPagerAdapter(
                 super.getSupportFragmentManager(), fragments);
@@ -145,10 +145,10 @@ public class Inicial extends AppCompatActivity implements
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
         //mTabHost.setOnTabChangedListener(this);
 
-        Inicial.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab3").setIndicator("Local"),
-                (tabInfo = new TabInfo("Tab3", Local.class, args)));
-        this.mapTabInfo.put(tabInfo.tag, tabInfo);
+//        Inicial.AddTab(this, this.mTabHost,
+//                this.mTabHost.newTabSpec("Tab3").setIndicator("Local"),
+//                (tabInfo = new TabInfo("Tab3", Local.class, args)));
+//        this.mapTabInfo.put(tabInfo.tag, tabInfo);
 
         mTabHost.setOnTabChangedListener(this);
 

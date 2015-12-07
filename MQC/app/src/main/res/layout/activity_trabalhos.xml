@@ -3,12 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.ufscar.alunos.mqc.Menu.Trabalhos">
 
-    <TextView android:text="implementar lista de Trabalhos" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!--<TextView android:text="implementar lista de Trabalhos" android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/button_floating_trabalhos"
@@ -21,6 +19,13 @@
         android:layout_marginBottom="23dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:id="@+id/trabalhos_lista"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/llDisci"/>
 
 
 </RelativeLayout>

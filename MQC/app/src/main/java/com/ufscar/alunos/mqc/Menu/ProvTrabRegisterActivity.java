@@ -99,9 +99,8 @@ public class ProvTrabRegisterActivity extends AppCompatActivity {
                 savept.put("date",date);
 
                 ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Disciplina");
-               // query.whereEqualTo("course", ParseObject.createWithoutData("Disciplina", objectID_disc));
 
-               query.whereEqualTo("objectId",objectID_disc);
+                query.whereEqualTo("objectId",objectID_disc);
 
                 query.findInBackground(new FindCallback<ParseObject>() {
                                            public void done(List<ParseObject> markers, ParseException e) {

@@ -53,7 +53,7 @@ public class Disciplinas extends Fragment {
         mListView = (ListView) rootView.findViewById(R.id.disciplnas_list);
 
         Bundle bundle = getActivity().getIntent().getExtras();
-        String id = bundle.getString("id");
+        final String id = bundle.getString("id");
         courseLoad(id);
 
         discAdd = (FloatingActionButton) rootView.findViewById(R.id.button_floating_d);
@@ -67,6 +67,7 @@ public class Disciplinas extends Fragment {
 
                                            Intent intent = new Intent(getActivity(), DiscRegisterActivity.class);
                                            intent.putExtra("course", ((InicialCursos)getActivity()).getName_course());
+                                           intent.putExtra("id", id);
                                            startActivity(intent);
 
                                            getActivity().finish();
@@ -149,7 +150,7 @@ public class Disciplinas extends Fragment {
 
                                            // specify an adapter (see also next example)
 
-                                           mAdapter = new MyAdapterDisciplinas(getActivity(), name, teacher);
+                                           mAdapter = new MyAdapterDisciplinas(getActivity(), name, teacher,((InicialCursos)getActivity()).getName_course());
                                            //mAdapter = new MyAdapterDisciplinas(getActivity(), name);
 
                                            mListView.setAdapter(mAdapter);
