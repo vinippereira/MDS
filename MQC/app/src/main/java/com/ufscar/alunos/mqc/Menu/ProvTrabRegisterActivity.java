@@ -1,5 +1,8 @@
 package com.ufscar.alunos.mqc.Menu;
 
+import android.provider.CalendarContract;
+import android.provider.ContactsContract;
+import java.util.GregorianCalendar;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -89,7 +92,8 @@ public class ProvTrabRegisterActivity extends AppCompatActivity {
 //                    Log.i("ERRO NA CONVERSAO DA DATA","ERRO");
                 }
 
-
+               final String descri= desc.getText().toString();
+                final String title = name.getText().toString();
                 savept.put("name", name.getText().toString());
                 savept.put("descricao", desc.getText().toString());
                 savept.put("date",date);
@@ -114,6 +118,19 @@ public class ProvTrabRegisterActivity extends AppCompatActivity {
                                                      Toast.makeText(getApplicationContext(), "Prova salva com sucesso!", Toast.LENGTH_LONG).show();
                                                    else
                                                        Toast.makeText(getApplicationContext(), "Trabalho salvo com sucesso!", Toast.LENGTH_LONG).show();
+
+                                                   //insere no google calendar
+                                                   Intent intentCalendar = new Intent(Intent.ACTION_INSERT);
+                                                   intentCalendar.setType("vnd.android.cursor.item/event");
+                                                   intentCalendar.putExtra(CalendarContract.Events.TITLE, title + "-" + disc);
+                                                   intentCalendar.putExtra(CalendarContract.Events.DESCRIPTION, descri);
+                                                   GregorianCalendar calDate = new GregorianCalendar(day_x, month_x, year_x);
+                                                   intentCalendar.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
+                                                   intentCalendar.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+                                                           calDate.getTimeInMillis());
+                                                   intentCalendar.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
+                                                           calDate.getTimeInMillis());
+                                                   startActivity(intentCalendar);
 
                                                    finish();
                                                } else {
