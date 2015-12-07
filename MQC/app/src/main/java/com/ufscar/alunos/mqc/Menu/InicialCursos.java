@@ -114,8 +114,6 @@ public class InicialCursos extends AppCompatActivity implements
 
         List<Fragment> fragments = new Vector<Fragment>();
         fragments.add(Fragment.instantiate(this, Disciplinas.class.getName()));
-        fragments.add(Fragment.instantiate(this, HorarioProvas.class.getName()));
-        fragments.add(Fragment.instantiate(this, HorarioTrabalhos.class.getName()));
 
         this.mPagerAdapter = new com.ufscar.alunos.mqc.Menu.ViewPagerAdapter(
                 super.getSupportFragmentManager(), fragments);
@@ -134,17 +132,6 @@ public class InicialCursos extends AppCompatActivity implements
                 (tabInfo = new TabInfo("Tab1", Disciplinas.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
 
-        InicialCursos.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab2").setIndicator("Horário de provas"),
-                (tabInfo = new TabInfo("Tab2", HorarioProvas.class, args)));
-        this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        //mTabHost.setOnTabChangedListener(this);
-
-        InicialCursos.AddTab(this, this.mTabHost,
-                this.mTabHost.newTabSpec("Tab3").setIndicator("Horário de trabalhos"),
-                (tabInfo = new TabInfo("Tab3", HorarioTrabalhos.class, args)));
-        this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        mTabHost.setOnTabChangedListener(this);
 
         //obs: dentro do esquema de abas do curso eh que terá a aba de menu ....
 
@@ -184,6 +171,7 @@ public class InicialCursos extends AppCompatActivity implements
         super.onBackPressed();
 
         Intent intent = new Intent(getApplication(), Inicial.class);
+
         startActivity(intent);
 
         finish();

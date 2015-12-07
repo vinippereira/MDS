@@ -2,11 +2,14 @@ package com.ufscar.alunos.mqc.Menu;
 
 
 import android.content.Intent;
+import android.net.Uri;
+import android.provider.CalendarContract;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -23,6 +26,9 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.ufscar.alunos.mqc.R;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import Logic.Course;
@@ -32,6 +38,7 @@ import Logic.Disciplina;
 public class Disciplinas extends Fragment {
 
     private FloatingActionButton discAdd;
+    private Button calendarAtividades;
     private ListView mListView;
     private MyAdapterDisciplinas mAdapter;
 
@@ -51,7 +58,26 @@ public class Disciplinas extends Fragment {
         courseLoad(id);
 
         discAdd = (FloatingActionButton) rootView.findViewById(R.id.button_floating_d);
+        calendarAtividades = (Button) rootView.findViewById(R.id.button_cAtividades);
 
+        calendarAtividades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Calendar cal = new GregorianCalendar();
+                cal.setTime(new Date());
+                long time = cal.getTime().getTime();
+                Uri.Builder builder =
+                        CalendarContract.CONTENT_URI.buildUpon();
+                builder.appendPath("time");
+                builder.appendPath(Long.toString(time));
+                Intent intent =
+                        new Intent(Intent.ACTION_VIEW, builder.build());
+                startActivity(intent);
+                getActivity().finish();
+
+            }
+        });
 
         discAdd.setOnClickListener(new View.OnClickListener() {
                                        @Override
